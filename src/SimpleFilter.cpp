@@ -79,6 +79,7 @@ void SimpleFilter::step() {
     float cutoffCVValue = (inputs[CUTOFF_CV_INPUT].value * 0.05f * params[CUTOFF_CV_PARAM].value);
     float resonanceCVValue = (inputs[RESONANCE_CV_INPUT].value * 0.1f * params[RESONANCE_CV_PARAM].value);
 
+    float gSampleRate = engineGetSampleRate();
     // translate frequency to logarithmic scale
     float freqHz = 20.f * powf(1000.f, params[CUTOFF_PARAM].value + cutoffCVValue);
     frequency = clip(freqHz * (1.f / (gSampleRate / 2.0f)), 1.f);

@@ -6,12 +6,7 @@ Plugin *plugin;
 void init(rack::Plugin *p) {
     plugin = p;
     plugin->slug = "Lindenberg Research";
-    plugin->name = "Lindenberg Research";
-    plugin->homepageUrl = "https://github.com/lindenbergresearch/LRTRack";
-
-    createModel<SimpleFilterWidget>(plugin, "LPFilter24dB", "24dB Lowpass Filter");
-    createModel<BlankPanelWidget>(plugin, "BlankPanel", "Blank Panel 26TE");
-    createModel<ReShaperWidget>(plugin, "ReShaper", "ReShaper Wavefolder");
-
+    p->addModel(createModel<SimpleFilterWidget>("Lindenberg Research", "LPFilter24dB", "24dB Lowpass Filter"));
+    p->addModel(createModel<BlankPanelWidget>("Lindenberg Research", "BlankPanel", "Blank Panel 26TE"));
+    p->addModel(createModel<ReShaperWidget>("Lindenberg Research", "ReShaper", "ReShaper Wavefolder"));
 }
-
